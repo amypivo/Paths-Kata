@@ -1,0 +1,45 @@
+#!/usr/bin/env ruby
+
+#Outline
+# * Start with a vertical line and then complete with a horizontal line.
+# * Only change direction once.
+# * No diagonals.
+
+def draw_path(str)
+  vrt_index = str.index('#')
+  horizontal_index = str.rindex('#')
+  row_length = str.index("\n") + 1
+  fill_vrt_lines(vrt_index, horizontal_index, row_length, str)
+end
+
+def fill_vrt_lines(vrt_index, hrzt_index, lngth, str)
+  rows = hrzt_index / lngth - vrt_index / lngth 
+  rows.times do
+    vrt_index += lngth
+    str[vrt_index] = '*'
+  end
+  #straight line
+  if vrt_index == hrzt_index
+    return str
+  else
+   fill_hrt_lines(vrt_index, hrzt_index, str)
+ end
+end
+
+def fill_hrt_lines(vrt_index, hrzt_index, str)
+  if vrt_index < hrzt_index
+    (vrt_index +1..hrzt_index -1).each { |i| str[i] = '*'}
+  else
+    (hrzt_index +1..vrt_index -1).each { |i| str[i] = '*'}
+  end 
+  return str
+end
+
+#Reading and writing to file
+input_file = ARGV[0]
+output_file = ARGV[1]
+
+file_str = File.read(input_file)
+
+File.open("#{output_file}", "w+") { |file| file.write(draw_path(file_str)) }
+
