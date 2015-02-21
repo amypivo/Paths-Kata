@@ -1,7 +1,5 @@
 class PointMapper
 
-  attr_reader :path_parser
-
   def initialize(path_parser)
     @path_parser = path_parser
   end
@@ -34,4 +32,9 @@ class PointMapper
   def end_of_path
     path_parser.end_point
   end
+
+  private 
+
+  attr_reader :path_parser
+  
 end

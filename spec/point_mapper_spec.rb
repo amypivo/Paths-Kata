@@ -2,8 +2,8 @@ require 'spec_helper.rb'
 
 describe PointMapper do 
 
-  let(:path_parser) {PathParser.new("....#.\n......\n......\n......\n.#....\n")}
-  subject {PointMapper.new(path_parser)}
+  let(:path) {Path.new("....#.\n......\n......\n......\n.#....\n")}
+  subject {PointMapper.new(path)}
 
   describe '#vertical_points' do
     it 'return an array of points' do 

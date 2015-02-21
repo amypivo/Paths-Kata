@@ -1,6 +1,4 @@
-class PathParser
-
-  attr_reader :str
+class Path
 
   def initialize(str)
     @str = str
@@ -21,5 +19,9 @@ class PathParser
   def row_length
     str.index("\n") + 1
   end
+
+  private 
+
+  attr_reader :str
 
 end

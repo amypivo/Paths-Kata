@@ -1,16 +1,12 @@
 #!/usr/bin/env ruby
-
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each {|file| require file }
 
-#Reading and writing to file
 input_file = ARGV[0]
 output_file = ARGV[1]
 
-file_processor = FileProcessor.new(input_file, output_file)
+Pather.new(input_file, output_file)
 
-str = file_processor.read_file
-
-parsed_string = PathParser.new(str)
+parsed_string = Path.new(str)
 
 mapper = PointMapper.new(parsed_string)
 

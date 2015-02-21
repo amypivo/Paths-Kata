@@ -1,7 +1,7 @@
 require 'spec_helper.rb'
 
-describe PathParser do 
-  subject {PathParser.new("...#\n....\n..#.")}
+describe Path do 
+  subject {Path.new("...#\n....\n..#.")}
 
   describe '#start_point' do 
     it 'returns the index of the path starting point' do
