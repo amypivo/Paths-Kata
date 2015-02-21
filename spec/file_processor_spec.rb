@@ -21,7 +21,7 @@ describe FileProcessor do
       subject.write_file(str)
 
       expect(File.read(output_file)).to eq(str)
-      expect(File.exists?("output_file")).to eq(true)
+      expect(File.exists?(output_file)).to eq(true)
     end
   end
 
