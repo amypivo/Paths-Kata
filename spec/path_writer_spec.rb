@@ -5,9 +5,9 @@ describe PathWriter do
   let(:path_points) {[2,3,4]}
   subject {PathWriter.new}
 
-  describe '#write' do 
+  describe '#draw' do 
     it 'replaces string characters with *' do 
-      expect(subject.write(test_str, path_points)).to eq("01***")
+      expect(subject.draw(test_str, path_points)).to eq("01***")
     end
   end
 

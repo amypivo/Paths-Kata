@@ -6,10 +6,10 @@ describe Pather do
   let(:output_file) {Tempfile.new('test_output.txt').path}
   subject {Pather.new(test_file, output_file)}
 
-  describe "input string" do 
+  describe "#process_input" do 
     it 'returns a file string from FileProcessor' do 
       expect(subject.file_processor).to receive(:read_file).with(test_file)
-      subject.input_string
+      subject.process_input
     end
   end
 

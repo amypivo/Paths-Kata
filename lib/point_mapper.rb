@@ -1,7 +1,7 @@
 class PointMapper
 
-  def initialize(path_parser)
-    @path_parser = path_parser
+  def initialize(path)
+    @path = path
   end
 
   def points
@@ -10,10 +10,10 @@ class PointMapper
 
   def vertical_points
     points = []
-    point = path_parser.start_point + path_parser.row_length
-    path_parser.vertical_path_length.times do |i|
+    point = path.start_point + path.row_length
+    path.vertical_path_length.times do |i|
       points << point
-      point += path_parser.row_length
+      point += path.row_length
     end
     @vertical_end_point = points.last
     points
@@ -30,11 +30,11 @@ class PointMapper
   end
 
   def end_of_path
-    path_parser.end_point
+    path.end_point
   end
 
   private 
 
-  attr_reader :path_parser
+  attr_reader :path
   
 end

@@ -27,4 +27,11 @@ describe Path do
     end
   end
 
+  describe '#points' do 
+    it 'uses point mapper to return a string' do 
+      expect(subject.point_mapper).to receive(:points)
+      subject.points
+    end
+  end
+
 end
