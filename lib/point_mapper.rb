@@ -11,7 +11,7 @@ class PointMapper
   def vertical_points
     points = []
     point = path.start_point + path.row_length
-    path.vertical_path_length.times do |i|
+    path.vertical_line_length.times do |i|
       points << point
       point += path.row_length
     end

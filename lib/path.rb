@@ -8,20 +8,20 @@ class Path
   end
 
   def start_point 
-    str.index('#')
+    @start_point ||= str.index('#')
   end
 
   def end_point
-    str.rindex('#')
+    @end_point ||= str.rindex('#')
   end
 
-  def vertical_path_length
-    (end_point / row_length) - (start_point / row_length)
+  def vertical_line_length
+    @vertical_line_length ||= (end_point / row_length) - (start_point / row_length)
   end
 
   #is this an attribute of path? no. 
   def row_length
-    str.index("\n") + 1
+    @row_length ||= str.index("\n") + 1
   end
 
   #a path knows it's points
