@@ -4,17 +4,6 @@ Dir[File.dirname(__FILE__) + '/lib/*.rb'].each {|file| require file }
 input_file = ARGV[0]
 output_file = ARGV[1]
 
-Pather.new(input_file, output_file)
+pather = Pather.new(input_file, output_file)
 
-parsed_string = Path.new(str)
-
-mapper = PointMapper.new(parsed_string)
-
-points = mapper.get_points
-
-writer = PathWriter.new
-
-str_with_path = writer.write(str, points)
- 
-
-file_processor.write_file(str_with_path)
+pather.show_the_way

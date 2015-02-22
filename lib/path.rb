@@ -19,7 +19,7 @@ class Path
     (end_point / row_length) - (start_point / row_length)
   end
 
-  #is this an attribure of path? no. 
+  #is this an attribute of path? no. 
   def row_length
     str.index("\n") + 1
   end
