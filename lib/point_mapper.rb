@@ -5,35 +5,42 @@ class PointMapper
   end
 
   def points
-    vertical_points + horizontial_points
-  end
+    vertical_points + horizontal_points
+  end 
 
   def vertical_points
     points = []
     point = path.start_point + path.row_length
-    path.vertical_line_length.times do |i|
+    until point == horizontal_line_start
       points << point
       point += path.row_length
     end
-    @vertical_end_point = points.last
     points
   end
 
-  def horizontial_points
+  def horizontal_points
     points = []
-    if end_of_path > @vertical_end_point
-      (@vertical_end_point+1..end_of_path-1).each { |i| points << i}
-    else
-      (end_of_path+1..@vertical_end_point-1).each { |i| points << i}
+    point = horizontal_line_start 
+    until point == path.end_point
+      points << point
+      point += direction
     end
     points
   end
 
-  def end_of_path
-    path.end_point
+  def direction
+    path.end_point > horizontal_line_start ? 1 : -1
   end
 
-  private 
+  def horizontal_line_start
+    vertical_line_length * path.row_length + path.start_point 
+  end
+
+  def vertical_line_length
+    (path.end_point / path.row_length) - (path.start_point / path.row_length)
+  end
+
+  private
 
   attr_reader :path
   

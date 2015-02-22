@@ -15,11 +15,6 @@ describe Path do
     end
   end
 
-  describe '#vertical_line_length' do 
-    it 'returns the length of the vertical line' do 
-      expect(subject.vertical_line_length).to eq(2) 
-    end
-  end
 
   describe '#row_length' do 
     it 'returns the length of each row' do
