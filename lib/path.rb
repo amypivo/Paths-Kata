@@ -15,10 +15,6 @@ class Path
     @end_point ||= str.rindex('#')
   end
 
-  def vertical_line_length
-    @vertical_line_length ||= (end_point / row_length) - (start_point / row_length)
-  end
-
   #is this an attribute of path? no. 
   def row_length
     @row_length ||= str.index("\n") + 1
